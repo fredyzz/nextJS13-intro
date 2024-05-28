@@ -1,3 +1,5 @@
+import NewTodoForm from "@/components/NewTodoForm"
+
 const getData = async () => {
   await new Promise((res) => setTimeout(() => res(0),2000))
   return {data: [1,2,3,4]}
@@ -10,6 +12,7 @@ const HomePage =  async () => {
     <div>
       <h1>Home</h1>
       <p>{JSON.stringify(data)}</p>
+      <NewTodoForm />
     </div>
   )
 }
