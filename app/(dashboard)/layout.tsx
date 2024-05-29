@@ -1,8 +1,13 @@
+import NewTodoForm from "@/components/NewTodoForm"
+
 const DashboardLayout = ({ children } : {children: React.ReactNode}) => {
   return (
     <div>
      <h1>DashboardLayout</h1>
-     {children}
+     <div>
+      <NewTodoForm/>
+     </div> 
+     <div>{children}</div>
     </div>
   )
 }
