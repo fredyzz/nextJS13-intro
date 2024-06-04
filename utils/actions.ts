@@ -3,8 +3,15 @@
 import { revalidatePath } from 'next/cache';
 import db from './db'
 
-interface NewTodoFormData {
-    content: string
+export const completeTodo = async (id : string) => {
+  await db.todo.update({
+    where: {id},
+    data: {
+      completed: true
+    }
+  })
+
+  revalidatePath('/todos')
 }
 
 export const newTodo = async (formData: FormData) => {
@@ -14,7 +21,7 @@ export const newTodo = async (formData: FormData) => {
       throw new Error('Invalid form data')
     }
   
-    const todo = await db.todo.create({
+    await db.todo.create({
       data: {
         content
       },
